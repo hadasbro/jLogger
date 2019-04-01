@@ -1,5 +1,7 @@
 ## Aspect I/O Method handler & logger
 
+**Catch and handle method's input, output and throweb Exceptiond**
+
 This is convinient input/output handler & logger. You can use it to handle and/or log any input and/or output from any method. You can also use this module as Request/Response logger for any controller or REST controller or any other purpose.
 
 What's inside:
