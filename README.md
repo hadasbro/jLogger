@@ -4,7 +4,7 @@
 
 This is convinient input/output handler & logger. You can use it to handle and/or log any input and/or output from any method. You can also use this module as Request/Response logger for any controller or REST controller or any other purpose.
 
-![picture](jlogger.png)
+![picture](jlogger/files/jlogger.png)
 
 What's inside:
 
