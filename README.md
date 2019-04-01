@@ -1,8 +1,10 @@
 ## Aspect I/O Method handler
 
-**Catch and handle or just log method's input, output and throweb Exceptions**
+**Catch and handle or just log method's I/O/Exceptions**
 
 This is convinient input/output handler & logger. You can use it to handle and/or log any input and/or output from any method. You can also use this module as Request/Response logger for any controller or REST controller or any other purpose.
+
+![picture](files/jlogger.png)
 
 What's inside:
 
@@ -12,7 +14,7 @@ What's inside:
 
 *Apache Commons (https://commons.apache.org/)*
 
-*Module is compatible with Spring 5, you can use it in any from your peojects (not only Spring ones) but also you can use it with Spring 5 and org.springframework.http.ResponseEntity class*
+*Module is compatible with Spring 5, you can use it in any from your projects (not only Spring ones) but also you can use it with Spring 5 and org.springframework.http.ResponseEntity class*
 
 ---
 
@@ -84,7 +86,7 @@ If you don't specify any additional options, module will be working as a simple 
         // log or handle only if Request/Input contains param userId and userId == 250, otherwise ommit
         @Logger(logOnlyOnRequestValue = "userId:350")
 
-    *You can use this option to log in your REST controller request - responses exceptionally, only if input contains required parameter and value*
+    *You can use this option to log in your REST controller request - responses conditionally, only if input contains required parameter and value*
 
 7. logTypes - handle/log only wanted actions (request, response, exception, all of them or only specific ones)
 	
@@ -144,7 +146,9 @@ If you don't specify any additional options, module will be working as a simple 
 
 ## Real example
 
-New interceptors and handler types.
+This is REST controller/service logger example. 
+Request (contaigning userId == 350) and response for method *MyRestController::create* will be logged to DB automatically.
+
 
 	package org.bitbucket.slawekhaa;
 
