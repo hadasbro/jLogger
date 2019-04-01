@@ -2,22 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e04cb843-fe46-4f1e-9cf4-f6d018011b0b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jlogger/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jlogger/src/main/java/org/bitbucket/slawekhaa/jlogger/AspectLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jlogger/src/main/java/org/bitbucket/slawekhaa/jlogger/Logger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jlogger/src/main/java/org/bitbucket/slawekhaa/jlogger/LoggerHandlers/DefaultLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jlogger/src/main/java/org/bitbucket/slawekhaa/jlogger/LoggerHandlers/LoggerHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jlogger/src/main/java/org/bitbucket/slawekhaa/jlogger/LoggerHandlers/PartialLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jlogger/src/main/java/org/bitbucket/slawekhaa/jlogger/classes/LoggerDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jlogger/src/main/java/org/bitbucket/slawekhaa/jlogger/tagInterfaces/LoggableException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jlogger/src/main/java/org/bitbucket/slawekhaa/jlogger/tagInterfaces/LoggableRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jlogger/src/main/java/org/bitbucket/slawekhaa/jlogger/tagInterfaces/LoggableResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -46,7 +30,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="552" />
-          <entry key="Markdown" value="1529" />
+          <entry key="Markdown" value="1546" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="XML" value="5" />
         </counts>
@@ -73,8 +57,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="594">
-                <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+              <first_editor relative-caret-position="288">
+                <caret line="143" column="6" lean-forward="true" selection-start-line="143" selection-start-column="6" selection-end-line="143" selection-end-column="6" />
               </first_editor>
               <second_editor />
             </state>
@@ -303,7 +287,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554076649893" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554076767578" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -538,8 +522,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="594">
-            <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+          <first_editor relative-caret-position="288">
+            <caret line="143" column="6" lean-forward="true" selection-start-line="143" selection-start-column="6" selection-end-line="143" selection-end-column="6" />
           </first_editor>
           <second_editor />
         </state>
@@ -551,10 +535,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>jLogger</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.1986755" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -566,7 +552,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.1986755" />
               </list>
             </option>
           </splitter-proportions>
@@ -626,7 +612,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.1986755" />
               </list>
             </option>
           </splitter-proportions>
