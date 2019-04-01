@@ -1,6 +1,6 @@
 **Aspect I/O Method handler & logger**
 
-This is convinient method input/output logger. You can use it to handle and/or log any input and/or output from any method. You can also use this module as Request/Response logger for any controller or REST controller or any other purpose.
+This is convinient input/output handler & logger. You can use it to handle and/or log any input and/or output from any method. You can also use this module as Request/Response logger for any controller or REST controller or any other purpose.
 
 What's inside:
 
@@ -73,39 +73,39 @@ If you don't specify any additional options, module will be working as a simple 
 	
 	    @Logger(includeStackTrace = true)
 
-5. filterStackTraceToPackage [ default: not settled, no limit ] - limit stack trace log to only required package.
+5. filterStackTraceToPackage [ default: not settled, no limit ] - limit stack trace log to wanted package only.
 	
 	    @Logger(filterStackTraceToPackage = "org.bitbucket.slawekhaa")
 
-6. logOnlyOnRequestValue - handle/log input **only if**, method/function contains param "param" and INPUT.param == value
+6. logOnlyOnRequestValue - handle/log input **only if** method/function contains param "param" and INPUT.param == value
         
-        // log/handle only if Request/Input contains param userId and userId == 250, otherwise ommit
+        // log or handle only if Request/Input contains param userId and userId == 250, otherwise ommit
         @Logger(logOnlyOnRequestValue = "userId:350")
 
     *You can use this option to log in your REST controller request - responses exceptionally, only if input contains required parameter and value*
 
 7. logTypes - handle/log only wanted actions (request, response, exception, all of them or only specific ones)
 	
-        // log/handle request and response, input and output
+        // log or handle request and response, input and output
         @Logger(logTypes = {Logger.TYPE.REQUEST, Logger.TYPE.RESPONSE}) 
         
-        // log/handle request/input only
+        // log or handle request/input only
         @LoggerlogTypes = Logger.TYPE.REQUEST)
 
-8. loggerHandler - **declare custom handler** for all I/O actions / log
+8. loggerHandler - **declare custom handler** for all I/O action/log
 
         // use your own handler class
         @Logger(loggerHandler = MyOwnhandler.class) 
         
         // handler must implement interface LoggerHandler for example:
-        public class DefaultLogger implements LoggerHandler {
+        public class MyOwnhandler implements LoggerHandler {
     
             private static String JOIN_SEPARATOR = " | ";
     
             private StringBuilder logResult = new StringBuilder();
     
-            // this method will be called first, at the beginnig of Handler creation
-            // this is kind of constructor, you can use this method to init your handler
+            // this \method \will be called first, at the beginnig \of Handler creation
+            // this \is kind of constructor, you can \use this \method to init your handler
             @Override
             public void init() {}
     
