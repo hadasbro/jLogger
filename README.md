@@ -1,6 +1,8 @@
-**Aspect I/O Method handler & logger**
+## Aspect I/O Method handler
 
-This is convinient method input/output logger. You can use it to handle and/or log any input and/or output from any method. You can also use this module as Request/Response logger for any controller or REST controller or any other purpose.
+**Catch and handle or just log method's input, output and throweb Exceptions**
+
+This is convinient input/output handler & logger. You can use it to handle and/or log any input and/or output from any method. You can also use this module as Request/Response logger for any controller or REST controller or any other purpose.
 
 What's inside:
 
@@ -73,32 +75,32 @@ If you don't specify any additional options, module will be working as a simple 
 	
 	    @Logger(includeStackTrace = true)
 
-5. filterStackTraceToPackage [ default: not settled, no limit ] - limit stack trace log to only required package.
+5. filterStackTraceToPackage [ default: not settled, no limit ] - limit stack trace log to wanted package only.
 	
 	    @Logger(filterStackTraceToPackage = "org.bitbucket.slawekhaa")
 
-6. logOnlyOnRequestValue - handle/log input **only if**, method/function contains param "param" and INPUT.param == value
+6. logOnlyOnRequestValue - handle/log input **only if** method/function contains param "param" and INPUT.param == value
         
-        // log/handle only if Request/Input contains param userId and userId == 250, otherwise ommit
+        // log or handle only if Request/Input contains param userId and userId == 250, otherwise ommit
         @Logger(logOnlyOnRequestValue = "userId:350")
 
     *You can use this option to log in your REST controller request - responses exceptionally, only if input contains required parameter and value*
 
 7. logTypes - handle/log only wanted actions (request, response, exception, all of them or only specific ones)
 	
-        // log/handle request and response, input and output
+        // log or handle request and response, input and output
         @Logger(logTypes = {Logger.TYPE.REQUEST, Logger.TYPE.RESPONSE}) 
         
-        // log/handle request/input only
+        // log or handle request/input only
         @LoggerlogTypes = Logger.TYPE.REQUEST)
 
-8. loggerHandler - **declare custom handler** for all I/O actions / log
+8. loggerHandler - **declare custom handler** for all I/O action/log
 
         // use your own handler class
         @Logger(loggerHandler = MyOwnhandler.class) 
         
         // handler must implement interface LoggerHandler for example:
-        public class DefaultLogger implements LoggerHandler {
+        public class MyOwnhandler implements LoggerHandler {
     
             private static String JOIN_SEPARATOR = " | ";
     
@@ -126,17 +128,81 @@ If you don't specify any additional options, module will be working as a simple 
             // this method will be called on response/output and will have an output object injested as a parameter
             @Override
             public void logResponse(LoggableResponse response, LoggerDetails loggerDetails) {
+            
+                logResult.append(" response: ").append(response).append(JOIN_SEPARATOR);
+            
                 if(!loggerDetails.getStackTrace().equals("")) {
                     logResult.append(" trace: ").append(loggerDetails.getStackTrace());
                 }
             }
-    
         }
 
 
 *Above handler class is a simple REST logger, every request & response handled by REST controller methods which are marked as @Logger(loggerHandler = MyOwnhandler.class) will be logged into a log.*
 
+---
 
+## Real example
+
+New interceptors and handler types.
+
+	package org.bitbucket.slawekhaa;
+
+	public class UserDto {
+    
+		public Integer id;
+		public String name;
+        
+        public String toString(){
+            return "id: " + id + ", name" + name;
+        }
+	}
+	
+	public class Response {
+
+		public Integer status;
+		public String message;
+        
+		Response(Integer status, String message) {
+			this.status  = status;
+			this.message  = message;
+		}
+        public String toString(){
+            return "status:" + status + ", message: " + message;
+        }
+	}
+	
+    // example of request:
+    // {"id":1,"name":"super user}
+    
+	@RestController
+	@RequestMapping("/rest/")
+	class MyRestController {
+
+		@Logger(
+            logResponseDurationTime = true,
+            logRequestTime = true,
+            includeStackTrace = true,
+            filterStackTraceToPackage = "org.bitbucket.slawekhaa",
+            logOnlyOnRequestValue = "userId:350",
+            logTypes = Logger.TYPE.ALL, 
+            loggerHandler = MyOwnhandler.class
+
+        )
+		@RequestMapping(value="create", method = RequestMethod.POST)
+		public ResponseEntity<? extends Response> create(@RequestBody UserDto user) {
+
+				// ... do some stuff
+				return ResponseEntity.ok(new Response(1, "OK"));
+
+		}
+		
+	}
+    
+Result: every request which contains parameter userId == 350 and corresponding response for service `MyRestController::test` will be catched and handled by `MyOwnhandler` and logged in to the DB including stack trace limitd to package `org.bitbucket.slawekhaa`.
+
+    2019-04-01 12:00:28 request: [id: 1, name: super user] | response: [status: 1, message: OK] | duration: 245ms | trace:  ... -> MyRestController.create()
+    
 ---
 
 ## Todo, future
