@@ -104,8 +104,8 @@ If you don't specify any additional options, module will be working as a simple 
     
             private StringBuilder logResult = new StringBuilder();
     
-            // this \method \will be called first, at the beginnig \of Handler creation
-            // this \is kind of constructor, you can \use this \method to init your handler
+            // this method will be called first, at the beginnig of Handler creation
+            // this is kind of constructor, you can use this method to init your handler
             @Override
             public void init() {}
     
@@ -126,17 +126,81 @@ If you don't specify any additional options, module will be working as a simple 
             // this method will be called on response/output and will have an output object injested as a parameter
             @Override
             public void logResponse(LoggableResponse response, LoggerDetails loggerDetails) {
+            
+                logResult.append(" response: ").append(response).append(JOIN_SEPARATOR);
+            
                 if(!loggerDetails.getStackTrace().equals("")) {
                     logResult.append(" trace: ").append(loggerDetails.getStackTrace());
                 }
             }
-    
         }
 
 
 *Above handler class is a simple REST logger, every request & response handled by REST controller methods which are marked as @Logger(loggerHandler = MyOwnhandler.class) will be logged into a log.*
 
+---
 
+## Real example
+
+New interceptors and handler types.
+
+	package org.bitbucket.slawekhaa;
+
+	public class UserDto {
+    
+		public Integer id;
+		public String name;
+        
+        public String toString(){
+            return "id: " + id + ", name" + name;
+        }
+	}
+	
+	public class Response {
+
+		public Integer status;
+		public String message;
+        
+		Response(Integer status, String message) {
+			this.status  = status;
+			this.message  = message;
+		}
+        public String toString(){
+            return "status:" + status + ", message: " + message;
+        }
+	}
+	
+    // example of request:
+    // {"id":1,"name":"super user}
+    
+	@RestController
+	@RequestMapping("/rest/")
+	class MyRestController {
+
+		@Logger(
+            logResponseDurationTime = true,
+            logRequestTime = true,
+            includeStackTrace = true,
+            filterStackTraceToPackage = "org.bitbucket.slawekhaa",
+            logOnlyOnRequestValue = "userId:350",
+            logTypes = Logger.TYPE.ALL, 
+            loggerHandler = MyOwnhandler.class
+
+        )
+		@RequestMapping(value="create", method = RequestMethod.POST)
+		public ResponseEntity<? extends Response> create(@RequestBody UserDto user) {
+
+				// ... do some stuff
+				return ResponseEntity.ok(new Response(1, "OK"));
+
+		}
+		
+	}
+    
+Result: every request which contains parameter userId == 350 and corresponding response for service `MyRestController::test` will be catched and handled by `MyOwnhandler` and logged in to the DB including stack trace limitd to package `org.bitbucket.slawekhaa`.
+
+    2019-04-01 12:00:28 request: [id: 1, name: super user] | response: [status: 1, message: OK] | duration: 245ms | trace:  ... -> MyRestController.create()
+    
 ---
 
 ## Todo, future
