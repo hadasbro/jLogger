@@ -116,7 +116,7 @@ public class AspectLogger {
         /*
             ----- parse RESPONSE -----
          */
-        Object jpObj;
+        Object jpObj = null;
 
         /* LoggableResponse */
         LoggableResponse response = null;
@@ -216,7 +216,7 @@ public class AspectLogger {
                     Object value = FieldUtils.readField(request, requiredRequestField.trim(), true);
 
                     if(!value.toString().trim().equals(requiredRequestValue.trim())) {
-                        return null;
+                        return jpObj;
                     }
 
                 } catch (IllegalAccessException | IllegalArgumentException e) {
@@ -244,7 +244,7 @@ public class AspectLogger {
         Predicate<Logger.TYPE> logResponse = el -> el.equals(Logger.TYPE.RESPONSE);
 
         if(loggerHandlerInstance == null) {
-            return null;
+            return jpObj;
         } else{
             loggerHandlerInstance.init();
         }
@@ -261,7 +261,7 @@ public class AspectLogger {
 
         loggerHandlerInstance.end();
 
-        return null;
+        return jpObj;
 
     }
 
