@@ -46,7 +46,7 @@ public class AspectLogger {
     public static final String SPRING_RESPONSE_ENTITY = "org.springframework.http.ResponseEntity";
 
     @Pointcut(
-            "execution(* *(..)) && @annotation(com.purse.wallet.Logger)"
+            "execution(* *(..)) && @annotation(Logger)"
     )
     public void loggerLog() {}
 
