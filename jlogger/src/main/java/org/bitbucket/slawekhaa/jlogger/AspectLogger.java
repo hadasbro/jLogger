@@ -148,7 +148,7 @@ public class AspectLogger {
                 /* there is no ResponseEntity Class in the scope */
             }
 
-            if(responseEntityClazz.isInstance(jpObj)) {
+            if(responseEntityClazz != null && responseEntityClazz.isInstance(jpObj)) {
 
                 Method getBodyMethod = responseEntityClazz.getMethod("getBody");
 
