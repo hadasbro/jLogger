@@ -22,7 +22,7 @@ import java.util.function.Predicate;
 
 @Log
 @Aspect
-@SuppressWarnings({"redundant", "cast", "unused", "WeakerAccess", "RedundantFieldInitialization"})
+@SuppressWarnings({"redundant", "cast", "unused", "WeakerAccess", "RedundantFieldInitialization","unchecked"})
 public class AspectLogger {
 
     /**
