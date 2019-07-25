@@ -1,5 +1,9 @@
 ## Aspect I/O Method handler
 
+
+![picture](https://img.shields.io/badge/Java-11.0.1-brightgreen.svg)
+![picture](https://img.shields.io/badge/aspectj-1.9.2-%23FF453C.svg)
+
 **Catch and handle or just log method's I/O/Exceptions**
 
 This is convinient input/output handler & logger. You can use it to handle and/or log any input and/or output from any method. You can also use this module as Request/Response logger for any controller or REST controller or any other purpose.
