@@ -52,6 +52,11 @@ public class AspectLogger {
      */
     public static final String SPRING_RESPONSE_ENTITY = "org.springframework.http.ResponseEntity";
 
+    @Around("execution(* *(..))")
+    public Object aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
+        return null;
+    }
+
     @Pointcut(
             "execution(* *(..)) && @annotation(Logger)"
     )
