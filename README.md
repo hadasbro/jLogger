@@ -1,8 +1,7 @@
 ## Aspect I/O Method handler
 
 
-![picture](https://img.shields.io/badge/Java-11.0.1-brightgreen.svg)
-![picture](https://img.shields.io/badge/Lombok-1.18.2-green.svg)
+![picture](https://img.shields.io/badge/Java-11.0.1-green)
 ![picture](https://img.shields.io/badge/aspectj-1.9.2-%23FF453C.svg)
 
 **Catch and handle or just log method's I/O/Exceptions**
