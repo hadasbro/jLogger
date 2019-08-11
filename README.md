@@ -11,13 +11,6 @@ This is convinient input/output handler & logger. You can use it to handle and/o
 
 ![picture](/jlogger/files/jlogger.png)
 
-What's inside:
-
-*Lombok (https://projectlombok.org/)*
-
-*AspectJ (https://www.eclipse.org/aspectj/)*
-
-*Apache Commons (https://commons.apache.org/)*
 
 *Module is compatible with Spring 5, you can use it in any from your projects (not only Spring ones) but also you can use it with Spring 5 and org.springframework.http.ResponseEntity class*
 
@@ -236,7 +229,7 @@ class MyRestController {
     
 ---
 
-## Todo, future
+## Todo, future releases
 
 New interceptors and handler types.
 
