@@ -44,14 +44,9 @@ public abstract class Utils {
 
             return valueaa.toString().trim();
 
-//                System.out.println("valueaa");
-//                System.out.println(valueaa);
-
         } else{
-            System.out.println("xxxxxxxxxx");
+            return null;
         }
-
-        return null;
 
     }
 

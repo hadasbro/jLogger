@@ -1,13 +1,15 @@
-package com.github.hadasbro.jlogger.classes;
+package com.github.hadasbro.jlogger.testClasses;
 
-import com.github.hadasbro.jlogger.LoggerHandlers.LoggerHandler;
+import com.github.hadasbro.jlogger.classes.LoggerDetails;
+import com.github.hadasbro.jlogger.classes.Utils;
+import com.github.hadasbro.jlogger.loggerHandlers.LoggerHandler;
 import com.github.hadasbro.jlogger.tagInterfaces.LoggableRequest;
 import com.github.hadasbro.jlogger.tagInterfaces.LoggableResponse;
 
 import static java.lang.System.out;
 
 @SuppressWarnings("unused")
-class MyOwnhandler implements LoggerHandler {
+class TestOwnHandler implements LoggerHandler {
 
     private static String JOIN_SEPARATOR = " | ";
 

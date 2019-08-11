@@ -1,7 +1,7 @@
 package com.github.hadasbro.jlogger;
 
-import com.github.hadasbro.jlogger.LoggerHandlers.DefaultLogger;
-import com.github.hadasbro.jlogger.LoggerHandlers.LoggerHandler;
+import com.github.hadasbro.jlogger.loggerHandlers.DefaultLogger;
+import com.github.hadasbro.jlogger.loggerHandlers.LoggerHandler;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

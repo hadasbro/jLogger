@@ -1,4 +1,4 @@
-package com.github.hadasbro.jlogger.LoggerHandlers;
+package com.github.hadasbro.jlogger.loggerHandlers;
 
 import com.github.hadasbro.jlogger.classes.LoggerDetails;
 import com.github.hadasbro.jlogger.classes.Utils;

@@ -1,10 +1,10 @@
-package com.github.hadasbro.jlogger.classes;
+package com.github.hadasbro.jlogger.testClasses;
 
 import com.github.hadasbro.jlogger.Logger;
 
 @SuppressWarnings("unused")
 public
-class MyController {
+class TestMyController {
 
 //    @Logger(
 ////            logResponseDurationTime = true,
@@ -12,17 +12,17 @@ class MyController {
 ////            includeStackTrace = true,
 ////            filterStackTraceToPackage = "com.github.hadasbro.jlogger",
 ////            logTypes = Logger.TYPE.ALL,
-////            loggerHandler = MyOwnhandler.class
+////            loggerHandler = TestOwnHandler.class
 //
 //    )
 
     @Logger
-    public static Response create(UserDto user) {
-        return new Response(1, "OK");
+    public static TestResponse create(TestUserDto user) {
+        return new TestResponse(1, "OK");
     }
 
     @Logger
-    public Response create2(UserDto user) {
-        return new Response(1, "OK");
+    public TestResponse create2(TestUserDto user) {
+        return new TestResponse(1, "OK");
     }
 }

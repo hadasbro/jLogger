@@ -1,7 +1,7 @@
 package com.github.hadasbro.jlogger;
 
-import com.github.hadasbro.jlogger.LoggerHandlers.DefaultLogger;
-import com.github.hadasbro.jlogger.LoggerHandlers.LoggerHandler;
+import com.github.hadasbro.jlogger.loggerHandlers.DefaultLogger;
+import com.github.hadasbro.jlogger.loggerHandlers.LoggerHandler;
 import com.github.hadasbro.jlogger.classes.LoggerDetails;
 import com.github.hadasbro.jlogger.classes.Utils;
 import com.github.hadasbro.jlogger.tagInterfaces.LoggableRequest;
@@ -30,6 +30,14 @@ import java.util.function.Predicate;
         "unchecked"
 })
 public class AspectLogger {
+
+    {
+        System.out.println(">>> AspectLogger normal");
+    }
+
+    static {
+        System.out.println(">>> AspectLogger static");
+    }
 
     /**
      * LOGGER

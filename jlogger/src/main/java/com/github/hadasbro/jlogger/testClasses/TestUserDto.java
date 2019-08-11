@@ -1,16 +1,16 @@
-package com.github.hadasbro.jlogger.classes;
+package com.github.hadasbro.jlogger.testClasses;
 
 import com.github.hadasbro.jlogger.tagInterfaces.LoggableRequest;
 
 @SuppressWarnings("unused")
 public
-class UserDto implements LoggableRequest {
+class TestUserDto implements LoggableRequest {
 
     private Integer id;
     private String name;
     public String name222 = "name222 xx";
 
-    public UserDto(Integer id, String name) {
+    public TestUserDto(Integer id, String name) {
         this.id = id;
         this.name = name;
     }

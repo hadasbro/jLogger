@@ -1,30 +1,28 @@
 package com.github.hadasbro.jlogger;
 
-import com.github.hadasbro.jlogger.classes.MyController;
-import com.github.hadasbro.jlogger.classes.Response;
-import com.github.hadasbro.jlogger.classes.UserDto;
+import com.github.hadasbro.jlogger.testClasses.TestMyController;
+import com.github.hadasbro.jlogger.testClasses.TestResponse;
+import com.github.hadasbro.jlogger.testClasses.TestUserDto;
 import org.junit.Test;
-
-import static java.lang.System.out;
 
 public class MainTest {
 
     @Test
     public void main() {
 
-        out.println("Test start 2...");
+        System.out.println("Test start 2...");
 
-        UserDto user = new UserDto(1, "Test user");
+        TestUserDto user = new TestUserDto(1, "Test user");
 
-        Response res = MyController.create(user);
+        TestResponse res = TestMyController.create(user);
 
-        MyController contr = new MyController();
-        Response res2 = contr.create2(user);
+        TestMyController contr = new TestMyController();
+        TestResponse res2 = contr.create2(user);
 
 
-        out.println("Test end...");
+        System.out.println("Test end...");
 
-        out.println(res);
+        System.out.println(res);
 
     }
 }
