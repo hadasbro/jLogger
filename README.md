@@ -38,7 +38,7 @@ class MyController{
             logRequestTime = true,
             timeZone = "UTC",
             includeStackTrace = true,
-            filterStackTraceToPackage = "org.bitbucket.slawekhaa",
+            filterStackTraceToPackage = "com.github.hadasbro.jlogger",
             logOnlyOnRequestValue = "userId:350",
             logTypes = {Logger.TYPE.REQUEST, Logger.TYPE.RESPONSE}
             loggerHandler = MyOwnhandler.class

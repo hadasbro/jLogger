@@ -10,7 +10,7 @@ class MyController {
 ////            logResponseDurationTime = true,
 ////            logRequestTime = true,
 ////            includeStackTrace = true,
-////            filterStackTraceToPackage = "org.bitbucket.slawekhaa",
+////            filterStackTraceToPackage = "com.github.hadasbro.jlogger",
 ////            logTypes = Logger.TYPE.ALL,
 ////            loggerHandler = MyOwnhandler.class
 //
