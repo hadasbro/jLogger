@@ -6,23 +6,15 @@ import com.github.hadasbro.jlogger.Logger;
 public
 class TestMyController {
 
-//    @Logger(
-////            logResponseDurationTime = true,
-////            logRequestTime = true,
-////            includeStackTrace = true,
-////            filterStackTraceToPackage = "com.github.hadasbro.jlogger",
-////            logTypes = Logger.TYPE.ALL,
-////            loggerHandler = TestOwnHandler.class
-//
-//    )
-
-    @Logger
+    @Logger(
+            logResponseDurationTime = true,
+            logRequestTime = true,
+            includeStackTrace = false,
+            logTypes = Logger.TYPE.ALL,
+            loggerHandler = TestOwnHandler.class
+    )
     public static TestResponse create(TestUserDto user) {
         return new TestResponse(1, "OK");
     }
 
-    @Logger
-    public TestResponse create2(TestUserDto user) {
-        return new TestResponse(1, "OK");
-    }
 }

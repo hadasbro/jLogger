@@ -1,9 +1,9 @@
 package com.github.hadasbro.jlogger;
 
-import com.github.hadasbro.jlogger.loggerHandlers.DefaultLogger;
-import com.github.hadasbro.jlogger.loggerHandlers.LoggerHandler;
 import com.github.hadasbro.jlogger.classes.LoggerDetails;
 import com.github.hadasbro.jlogger.classes.Utils;
+import com.github.hadasbro.jlogger.loggerHandlers.DefaultLogger;
+import com.github.hadasbro.jlogger.loggerHandlers.LoggerHandler;
 import com.github.hadasbro.jlogger.tagInterfaces.LoggableRequest;
 import com.github.hadasbro.jlogger.tagInterfaces.LoggableResponse;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -31,14 +31,6 @@ import java.util.function.Predicate;
 })
 public class AspectLogger {
 
-    {
-        System.out.println(">>> AspectLogger normal");
-    }
-
-    static {
-        System.out.println(">>> AspectLogger static");
-    }
-
     /**
      * LOGGER
      */
@@ -64,14 +56,8 @@ public class AspectLogger {
      */
     public static final String SPRING_RESPONSE_ENTITY = "org.springframework.http.ResponseEntity";
 
-    @Around("execution(* *(..))")
-    public Object aroundAdvice(ProceedingJoinPoint joinPoint) {
-        System.out.println("GENERAL ARROUND  xxxxxxxxxxxx");
-        return null;
-    }
-
     @Pointcut(
-            "execution(* *(..)) && @annotation(Logger)"
+            "execution(* *(..)) && @annotation(com.github.hadasbro.jlogger.Logger)"
     )
     public void loggerLog() {}
 
@@ -258,9 +244,6 @@ public class AspectLogger {
             duration = System.currentTimeMillis() - start;
             loggerDetails.setDuration(duration);
         }
-
-
-
 
         // get log types, log only request, response, both of them, etc.
 
