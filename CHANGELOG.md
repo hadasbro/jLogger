@@ -1,4 +1,4 @@
-# 1.0.1
+# 1.0.1-SNAPSHOT
 
-* First version of library
+* First - snapshot version of library
 * JLogger - I/O, Request/Response logger

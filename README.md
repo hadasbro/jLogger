@@ -16,6 +16,15 @@ This is convinient input/output handler & logger. You can use it to handle and/o
 
 ---
 
+## Install
+
+Install from sources.
+
+Current version is 1.0.1-SNAPSHOT. Version 1.0.1 Stable will be added to Maven Central.
+
+
+---
+
 ## Overview
 
 To use this module just simply add a @Logger annotation to your function/method/clousure or rest controller method as below.

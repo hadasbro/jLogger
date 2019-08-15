@@ -6,7 +6,7 @@
 
     <groupId>com.github.hadasbro</groupId>
     <artifactId>jlogger</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <properties>
         <jdk.version>1.9</jdk.version>
