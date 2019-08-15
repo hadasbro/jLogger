@@ -12,6 +12,10 @@
         <jdk.version>1.9</jdk.version>
         <maven.compiler.target>1.9</maven.compiler.target>
         <maven.compiler.source>1.9</maven.compiler.source>
+        <aspectj.version>1.9.1</aspectj.version>
+        <java.source-target.version>1.8</java.source-target.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <main-class>com.github.hadasbro.jlogger.Main</main-class>
     </properties>
 
     <name>jLogger</name>
@@ -20,8 +24,8 @@
 
     <licenses>
         <license>
-            <name>Eclipse Public License - v 1.0</name>
-            <url>https://www.eclipse.org/legal/epl-v10.html</url>
+            <name>Eclipse Public License 1.0</name>
+            <url>https://opensource.org/licenses/EPL-1.0</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -31,7 +35,7 @@
             <name>Slawomir Hadas</name>
             <email>slawomir.hadas@yahoo.com</email>
             <organization>hadasbro</organization>
-            <organizationUrl>https://github.com/hadasbro</organizationUrl>
+            <organizationUrl>https://github.com/jLogger</organizationUrl>
         </developer>
     </developers>
 
@@ -54,15 +58,58 @@
     </distributionManagement>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+                    <configuration>
+                        <source>${java.source-target.version}</source>
+                        <target>${java.source-target.version}</target>
+                        <useIncrementalCompilation>false</useIncrementalCompilation>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>aspectj-maven-plugin</artifactId>
+                    <version>1.7</version>
+                    <configuration>
+                        <source>${java.source-target.version}</source>
+                        <target>${java.source-target.version}</target>
+                        <Xlint>ignore</Xlint>
+                        <complianceLevel>${java.source-target.version}</complianceLevel>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <outxml>true</outxml>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>process-sources</phase>
+                            <goals>
+                                <goal>compile</goal>
+                                <goal>test-compile</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjtools</artifactId>
+                            <version>${aspectj.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <configuration>
+                        <mainClass>${main-class}</mainClass>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>11</source>
-                    <target>11</target>
-                </configuration>
-            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -76,7 +123,6 @@
                     <doclint>none</doclint>
                 </configuration>
             </plugin>
-
 
             <plugin>
                 <groupId>com.jolira</groupId>
@@ -96,8 +142,31 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>aspectj-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>${main-class}</mainClass>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -109,12 +178,12 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
-            <version>1.9.2</version>
+            <version>${aspectj.version}</version>
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.9.2</version>
+            <version>${aspectj.version}</version>
         </dependency>
     </dependencies>
 
