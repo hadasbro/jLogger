@@ -238,6 +238,12 @@ class MyRestController {
     
 ---
 
+## Authors
+
+* **Slawomir Hadas** - *author* - [Github](https://github.com/hadasbro)
+
+---
+
 ## Todo, future releases
 
 New interceptors and handler types.
