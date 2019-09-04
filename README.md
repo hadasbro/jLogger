@@ -236,13 +236,7 @@ class MyRestController {
 
     2019-04-01 12:00:28 request: [id: 1, name: super user] | response: [status: 1, message: OK] | duration: 245ms | trace:  ... -> MyRestController.create()
     
----
 
-## Authors
-
-* **Slawomir Hadas** - *author* - [Github](https://github.com/hadasbro)
-
----
 
 ## Todo, future releases
 
@@ -255,3 +249,10 @@ New interceptors and handler types.
         ERROR,  // TODO
         TRACE   // TODO
     }
+
+---
+
+## Authors
+
+* **Slawomir Hadas** - *author* - [Github](https://github.com/hadasbro)
+
